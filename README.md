@@ -11,7 +11,7 @@ A simple Chrome extension that tracks the time spent on different websites and p
 ## 📦 Installation  
 
 ### 🔹 Install via Release Package  
-1. **Download the latest release package** from the [Releases](https://github.com/YOUR_GITHUB_USERNAME/Time-Tracker-Extension/releases).  
+1. **Download the latest release package** from the [Releases](https://github.com/Sahilll94/CodeClock/releases/tag/v1).
 2. **Extract the ZIP file** to a folder.  
 3. Open Chrome Extensions (`chrome://extensions/`).  
 4. **Enable Developer Mode** (top right corner).  
