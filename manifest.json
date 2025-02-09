@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "CodeClock",
+  "version": "1.0",
+  "description": "Tracks time spent on all websites",
+  "permissions": ["tabs", "storage", "activeTab"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "time.png"
+  },
+  "icons": {
+    "16": "time.png",
+    "48": "time.png",
+    "128": "time.png"
+  }
+}
