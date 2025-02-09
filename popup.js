@@ -1,14 +1,20 @@
 document.addEventListener("DOMContentLoaded", () => {
   chrome.storage.local.get(null, (data) => {
     let list = document.getElementById("timeList");
-    list.innerHTML = data && Object.keys(data).length ? "" : "<p>No data yet.</p>";
-
-    let sortedSites = Object.entries(data).sort((a, b) => b[1] - a[1]); // Sort by most time spent
-
-    sortedSites.forEach(([site, seconds]) => {
+    list.innerHTML = "";
+    for (let site in data) {
       let li = document.createElement("li");
-      li.innerHTML = `<span>${site}</span> <span>${Math.round(seconds / 60)} min</span>`;
+      li.innerHTML = `${site}: ${Math.round(data[site] / 60)} min <button data-site="${site}">Remove</button>`;
       list.appendChild(li);
+    }
+    
+    document.querySelectorAll("button").forEach(button => {
+      button.addEventListener("click", (event) => {
+        let siteToRemove = event.target.getAttribute("data-site");
+        chrome.storage.local.remove(siteToRemove, () => {
+          event.target.parentElement.remove();
+        });
+      });
     });
   });
 });

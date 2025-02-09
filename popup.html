@@ -1,16 +1,65 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CodeClock</title>
-  <link rel="stylesheet" href="popup.css">
+  <title>Time Tracker</title>
   <script src="popup.js" defer></script>
+  <style>
+    body {
+      background-color: black;
+      color: white;
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      text-align: center;
+      transition: background 0.5s ease-in-out;
+    }
+    h2 {
+      font-size: 22px;
+      margin-bottom: 15px;
+      animation: fadeIn 1s ease-in-out;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    li {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px;
+      border-bottom: 1px solid gray;
+      background: #1e1e1e;
+      margin: 5px 0;
+      border-radius: 5px;
+      transition: transform 0.3s ease-in-out;
+    }
+    li:hover {
+      transform: scale(1.05);
+    }
+    button {
+      background: red;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background: darkred;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
 </head>
 <body>
-  <div class="container">
-    <h2>🕒 Time Spent on Websites</h2>
-    <ul id="timeList"></ul>
-  </div>
+  <h2>Time Spent on Websites</h2>
+  <ul id="timeList"></ul>
+  <!-- <p style='margin-top: 20px; font-size: 12px; color: gray;'>Created by Sahil | For more contact <a href='https://sahilportfolio.me' style='color: lightblue;'>sahilportfolio.me</a></p> -->
+  <p style='margin-top: 20px; font-size: 12px; color: #ffffff; text-align: center;'>
+    Created by <span style='color: #ff9800; font-weight: bold;'>Sahil</span> | 
+    Contact: <a href='https://sahilportfolio.me' style='color: #4db6ac; font-weight: bold; text-decoration: none;'>sahilportfolio.me</a>
+  </p>
+
 </body>
 </html>

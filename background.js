@@ -7,7 +7,7 @@ chrome.tabs.onActivated.addListener(async (activeInfo) => {
 });
 
 chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
-  if (changeInfo.status === "complete" && tab.active) {
+  if (changeInfo.status === "complete") {
     trackTime(tab.url);
   }
 });
@@ -15,7 +15,7 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
 function trackTime(url) {
   if (!url) return;
   let domain = new URL(url).hostname;
-
+  
   if (activeTab !== domain) {
     if (activeTab && startTime) {
       logTime(activeTab, (Date.now() - startTime) / 1000);
@@ -31,10 +31,3 @@ function logTime(site, seconds) {
     chrome.storage.local.set({ [site]: total });
   });
 }
-
-// Ensure last active tab gets logged when the browser is closed
-chrome.runtime.onSuspend.addListener(() => {
-  if (activeTab && startTime) {
-    logTime(activeTab, (Date.now() - startTime) / 1000);
-  }
-});
